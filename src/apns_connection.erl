@@ -86,8 +86,7 @@ ssl_opts(Connection) ->
     case Connection#apns_connection.cert_password of
       undefined -> [];
       Password -> [{password, Password}]
-    end ++
-    [{versions,['tlsv1']}], %% Work around OTP TLS bug: https://github.com/inaka/apns4erl/issues/57
+    end,
   [{mode, binary} | Opts].
 
 %% @hidden
